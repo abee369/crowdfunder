@@ -1,0 +1,25 @@
+<h1>Edit <%= @project.title %></h1>
+<%= link_to "Manage Images", my_project_images_path(@project) %>
+<%= form_for [:my, @project] do |f| %>
+	<div class="field">
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</div>
+	<div class="field">
+		<%= f.label :teaser %>
+		<%= f.text_field :teaser %>
+	</div>
+	<div class="field">
+		<%= f.label :description %>
+		<%= f.text_area :description %>
+	</div>
+	<div class="field">
+		<%= f.label :goal %>
+		<%= f.number_field :goal %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Update project" %>
+	</div>
+<% end %>
+<%= button_to "Delete Project", [:my, @project], method: :delete, data: { confirm: "Are you sure?" }, class: "btn-danger"%>
+
